@@ -83,6 +83,7 @@ void search(info info1[], int count){
 int main()
 {
     int count,n;
+    int check;
     info info1[100];
     FILE *peoplefile = fopen("personal.txt","w");
     if(peoplefile == NULL){
@@ -97,15 +98,14 @@ int main()
     fclose(peoplefile);
     while (1)
     {
-        printf("Enter your choice: ");
-        int ret = scanf("%d",&n);
-        printf("ret = %d",ret);
-        while (ret != 1)
-        {
-            ret = scanf("%s",&n);
-            printf("Select: ");
-            ret = scanf("%d",&n);
-        }
+        do{
+            printf("Enter your choice: ");
+            scanf("%d",&n);
+
+            if(n < 1 || n>4){
+                printf("Error your choice must be between 1-4\n");
+            }
+        } while(n<1 || n>4);
         
         switch (n)
         {
